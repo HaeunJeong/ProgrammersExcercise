@@ -1,0 +1,38 @@
+1. HashMap 의 메소드
+from https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
+
+1) public int size()
+2) public boolean isEmpty()
+3) public V get(Object key)
+- 매칭되는 value 또는 null을 반환
+4) public boolean containsKey(Object key)
+5) public V put(K key, V value)
+- 이미 존재하는 key에 중복으로 호출될 시, 새로운 값으로 업데이튼 된다.
+5) public void putAll(Map<K,V> m)
+6) public V remove(Object key)
+7) public void clear()
+- 해당 map은 empty상태가 됨
+8) public boolean contatinsValue(Object value)
+9) public Set<K> keySet()
+- key들의 Set을 반환.
+- map이 바뀌면 set에도 반영이 되며 그 역도 성립.
+10) public Collection<V> values()
+- keySet()과 마찬가지로, map이 바뀌면 반영이되며, 그 역도 성립.
+11) public Set<Map.Entry<K,V>> entrySet()
+- HashMap의 Key-Value 쌍은 내부적으로 Entry 타입을 가지며, 그 타입들을 Set으로 반환.
+- getKey(), getValue() 사용이됨.
+12) public V getOrDefault(Object key, V defaultValue)
+- 해당 key에 대한 매핑되는 value가 없으면, 메소드에 설정한 defaultValue를 반환함
+13) public V putIfAbsent(K key, V value)
+- 이미 있는 value에 매핑되어 있는 key가 아니면, 주어진 value에 매핑시켜 put하고 null을 반환.
+- 그렇지 않다면 기존에 있는 value를 반환함. (put은 하나?)
+14) public boolean remove(Object key, Object value)
+- key, value 가 정확히 맞는 Entry를 삭제. 삭제되면 true 반환
+15) public boolean replace(K key, V oldValue, V newValue)
+- key, oldValue에 매칭되는 게 있다면 newValue로 대체
+16) public replace(K key, V value)
+
+2. HashMap 과 Map의 차이
+
+3. Collision 충돌
+
