@@ -1,11 +1,15 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.Map;
 
 
 public class Solution {
 
 	public static void main(String[] args) {
 
-	    System.out.println(solution1(new String[] {"mislav", "stanko", "mislav", "ana" },
+	    System.out.println(solution1(new String[] {"mislav", "stanko","mislav", "ana" },
 				new String[] { "stanko", "ana", "mislav" }));
     }
 
@@ -31,13 +35,22 @@ public class Solution {
     public static String solution2(String[] participant, String[] completion){
         String answer = "";
         
-        HashMap<String,Integer> map = HashMap<>();
+        HashMap<String,Integer> map = new HashMap<>();
         for(String part : participant){
             map.put(part, map.getOrDefault(part,0)+1);
         }
 
         for(String com : completion){
-            
+            map.put(com, map.get(com)-1);
+        }
+
+        Set<Map.Entry<String, Integer>> enSet = new HashSet<>();
+        enSet = map.entrySet();
+        for(Map.Entry<String,Integer> e: enSet){
+            if(e.getValue() > 0){
+                answer = e.getKey();
+                break;
+            }
         }
 
         return answer;
